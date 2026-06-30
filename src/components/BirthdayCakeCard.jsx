@@ -970,7 +970,30 @@ const OpenCard = ({ onNext }) => {
                     Click vào nến hoặc bấm nút để thổi nến nha.
                   </motion.p>
                   <motion.button
-                    whileHover={{ scale: 1.04, boxShadow:              ) : (
+                    whileHover={{ scale: 1.04, boxShadow: '0 12px 35px rgba(76,201,240,0.45)' }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={finishCandleStep}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 8,
+                      minWidth: 220,
+                      border: '1px solid rgba(76,201,240,0.55)',
+                      borderRadius: 50,
+                      padding: '12px 22px',
+                      background: 'linear-gradient(135deg, rgba(76,201,240,0.25), rgba(6,214,160,0.2))',
+                      color: '#fff',
+                      fontSize: '1rem',
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.28)',
+                    }}
+                  >
+                    <Wind size={18} color="#4cc9f0" /> Thổi nến ngay
+                  </motion.button>
+                </motion.div>
+              ) : (
                 <motion.div
                   key="get-gift-btn"
                   initial={{ opacity: 0, scale: 0.8, y: 15 }}
