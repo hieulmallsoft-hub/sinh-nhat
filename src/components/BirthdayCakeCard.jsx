@@ -1001,12 +1001,117 @@ const OpenCard = ({ onNext }) => {
                   transition={{ type: 'spring', stiffness: 120 }}
                   style={{ textAlign: 'center', width: '100%' }}
                 >
+                  {/* Surprise Image Reveal */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
+                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, type: 'spring', bounce: 0.35 }}
+                    style={{
+                      position: 'relative',
+                      marginBottom: '1rem',
+                      borderRadius: 18,
+                      overflow: 'hidden',
+                      border: '3px solid rgba(212,175,55,0.5)',
+                      boxShadow: '0 15px 45px rgba(255,77,109,0.35), 0 0 30px rgba(212,175,55,0.2)',
+                    }}
+                  >
+                    {/* Shimmer overlay */}
+                    <motion.div
+                      animate={{ x: ['-130%', '230%'] }}
+                      transition={{ repeat: Infinity, duration: 2.5, ease: 'linear', repeatDelay: 2 }}
+                      style={{
+                        position: 'absolute', top: 0, left: 0,
+                        width: '45%', height: '100%',
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                        transform: 'skewX(-12deg)', pointerEvents: 'none', zIndex: 3,
+                      }}
+                    />
+                    <img
+                      src="/photos/surprise-ride.jpg"
+                      alt="Surprise"
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        display: 'block',
+                        borderRadius: 15,
+                      }}
+                    />
+                    {/* Gradient overlay at bottom for text readability */}
+                    <div style={{
+                      position: 'absolute', bottom: 0, left: 0, right: 0,
+                      height: '50%',
+                      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }} />
+                  </motion.div>
+
+                  {/* Surprise Text */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6, type: 'spring', bounce: 0.4 }}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,77,109,0.15), rgba(212,175,55,0.12))',
+                      border: '1.5px solid rgba(212,175,55,0.35)',
+                      borderRadius: 16,
+                      padding: '1rem 1.2rem',
+                      marginBottom: '1rem',
+                    }}
+                  >
+                    <motion.p
+                      animate={{
+                        textShadow: [
+                          '0 0 8px rgba(255,77,109,0.4)',
+                          '0 0 20px rgba(255,77,109,0.8)',
+                          '0 0 8px rgba(255,77,109,0.4)',
+                        ],
+                      }}
+                      transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+                      style={{
+                        fontFamily: 'var(--font-cursive)',
+                        fontSize: '1.6rem',
+                        fontWeight: 800,
+                        background: 'linear-gradient(135deg, #ff8fa3, #ff4d6d, #f0d060)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        margin: '0 0 0.4rem',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      Lên a đèo đi xem quà nhé 🏍️
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.2 }}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        gap: 6,
+                      }}
+                    >
+                      {['✨', '🎁', '💝', '🎁', '✨'].map((emoji, i) => (
+                        <motion.span
+                          key={i}
+                          animate={{ y: [0, -5, 0] }}
+                          transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.15, ease: 'easeInOut' }}
+                          style={{ fontSize: '1.1rem' }}
+                        >
+                          {emoji}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Wish Lines */}
                   <div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 8,
                     marginBottom: '1rem',
-                    minHeight: 92,
+                    minHeight: 72,
                   }}>
                     {WISH_LINES.slice(0, visibleWishLines).map((line, index) => (
                       <motion.p
@@ -1037,6 +1142,9 @@ const OpenCard = ({ onNext }) => {
                   </div>
                   
                   <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.5 }}
                     whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(255,77,109,0.7)' }}
                     whileTap={{ scale: 0.95 }}
                     className="btn-primary"
