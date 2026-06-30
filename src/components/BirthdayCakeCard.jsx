@@ -970,30 +970,7 @@ const OpenCard = ({ onNext }) => {
                     Click vào nến hoặc bấm nút để thổi nến nha.
                   </motion.p>
                   <motion.button
-                    whileHover={{ scale: 1.04, boxShadow: '0 12px 35px rgba(76,201,240,0.45)' }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={finishCandleStep}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 8,
-                      minWidth: 220,
-                      border: '1px solid rgba(76,201,240,0.55)',
-                      borderRadius: 50,
-                      padding: '12px 22px',
-                      background: 'linear-gradient(135deg, rgba(76,201,240,0.25), rgba(6,214,160,0.2))',
-                      color: '#fff',
-                      fontSize: '1rem',
-                      fontWeight: 800,
-                      cursor: 'pointer',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.28)',
-                    }}
-                  >
-                    <Wind size={18} color="#4cc9f0" /> Thổi nến ngay
-                  </motion.button>
-                </motion.div>
-              ) : (
+                    whileHover={{ scale: 1.04, boxShadow:              ) : (
                 <motion.div
                   key="get-gift-btn"
                   initial={{ opacity: 0, scale: 0.8, y: 15 }}
@@ -1001,158 +978,7 @@ const OpenCard = ({ onNext }) => {
                   transition={{ type: 'spring', stiffness: 120 }}
                   style={{ textAlign: 'center', width: '100%' }}
                 >
-                  {/* Surprise Image Reveal */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
-                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8, type: 'spring', bounce: 0.35 }}
-                    style={{
-                      position: 'relative',
-                      marginBottom: '1rem',
-                      borderRadius: 18,
-                      overflow: 'hidden',
-                      border: '3px solid rgba(212,175,55,0.5)',
-                      boxShadow: '0 15px 45px rgba(255,77,109,0.35), 0 0 30px rgba(212,175,55,0.2)',
-                    }}
-                  >
-                    {/* Shimmer overlay */}
-                    <motion.div
-                      animate={{ x: ['-130%', '230%'] }}
-                      transition={{ repeat: Infinity, duration: 2.5, ease: 'linear', repeatDelay: 2 }}
-                      style={{
-                        position: 'absolute', top: 0, left: 0,
-                        width: '45%', height: '100%',
-                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                        transform: 'skewX(-12deg)', pointerEvents: 'none', zIndex: 3,
-                      }}
-                    />
-                    <img
-                      src="/photos/surprise-ride.jpg"
-                      alt="Surprise"
-                      style={{
-                        width: '100%',
-                        height: 'auto',
-                        display: 'block',
-                        borderRadius: 15,
-                      }}
-                    />
-                    {/* Gradient overlay at bottom for text readability */}
-                    <div style={{
-                      position: 'absolute', bottom: 0, left: 0, right: 0,
-                      height: '50%',
-                      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-                      pointerEvents: 'none',
-                      zIndex: 2,
-                    }} />
-                  </motion.div>
-
-                  {/* Surprise Text */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6, type: 'spring', bounce: 0.4 }}
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255,77,109,0.15), rgba(212,175,55,0.12))',
-                      border: '1.5px solid rgba(212,175,55,0.35)',
-                      borderRadius: 16,
-                      padding: '1rem 1.2rem',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    <motion.p
-                      animate={{
-                        textShadow: [
-                          '0 0 8px rgba(255,77,109,0.4)',
-                          '0 0 20px rgba(255,77,109,0.8)',
-                          '0 0 8px rgba(255,77,109,0.4)',
-                        ],
-                      }}
-                      transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                      style={{
-                        fontFamily: 'var(--font-cursive)',
-                        fontSize: '1.6rem',
-                        fontWeight: 800,
-                        background: 'linear-gradient(135deg, #ff8fa3, #ff4d6d, #f0d060)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        margin: '0 0 0.4rem',
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      Lên a đèo đi xem quà nhé 🏍️
-                    </motion.p>
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.2 }}
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: 6,
-                      }}
-                    >
-                      {['✨', '🎁', '💝', '🎁', '✨'].map((emoji, i) => (
-                        <motion.span
-                          key={i}
-                          animate={{ y: [0, -5, 0] }}
-                          transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.15, ease: 'easeInOut' }}
-                          style={{ fontSize: '1.1rem' }}
-                        >
-                          {emoji}
-                        </motion.span>
-                      ))}
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Wish Lines */}
-                  <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 8,
-                    marginBottom: '1rem',
-                    minHeight: 72,
-                  }}>
-                    {WISH_LINES.slice(0, visibleWishLines).map((line, index) => (
-                      <motion.p
-                        key={line}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.32 }}
-                        style={{
-                          fontFamily: index === 0 ? 'var(--font-cursive)' : 'var(--font-sans)',
-                          fontSize: index === 0 ? '1.45rem' : '0.95rem',
-                          color: index === 0 ? '#06d6a0' : 'rgba(255,255,255,0.82)',
-                          margin: 0,
-                          fontWeight: index === 0 ? 800 : 600,
-                          lineHeight: 1.35,
-                        }}
-                      >
-                        {line}
-                        {index === visibleWishLines - 1 && visibleWishLines < WISH_LINES.length && (
-                          <motion.span
-                            animate={{ opacity: [0, 1, 0] }}
-                            transition={{ repeat: Infinity, duration: 0.8 }}
-                          >
-                            |
-                          </motion.span>
-                        )}
-                      </motion.p>
-                    ))}
-                  </div>
-                  
-                  <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5 }}
-                    whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(255,77,109,0.7)' }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-primary"
-                    onClick={onNext}
-                    style={{ width: '100%', justifyContent: 'center', fontSize: '1.15rem', padding: '15px' }}
-                  >
-                    <Gift size={20} /> Nhận quà của anh nhé
-                  </motion.button>
+                  <ChaseTargetGame onWon={onNext} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1163,6 +989,180 @@ const OpenCard = ({ onNext }) => {
 
       <div style={{ height: 5, background: 'linear-gradient(90deg, #a07820, #d4af37, #f0d060, #d4af37, #a07820)' }} />
     </motion.div>
+  );
+};
+
+/* ─── Chase Target Mini Game ─── */
+const ChaseTargetGame = ({ onWon }) => {
+  const [position, setPosition] = useState({ x: 50, y: 50 });
+  const [clicked, setClicked] = useState(false);
+  const containerRef = useRef(null);
+
+  // Randomly teleport the avatar to a new position on screen
+  const teleport = useCallback(() => {
+    if (clicked) return;
+    const padding = 80;
+    const maxX = window.innerWidth - padding * 2;
+    const maxY = window.innerHeight - padding * 2;
+    
+    // Random position relative to viewport
+    const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+    
+    setPosition({ x: randomX, y: randomY });
+  }, [clicked]);
+
+  // Run or teleport away when cursor gets close (optional but fun)
+  useEffect(() => {
+    teleport();
+    const interval = setInterval(teleport, 1400); // changes position every 1.4s
+    return () => clearInterval(interval);
+  }, [teleport]);
+
+  const handleCatch = () => {
+    setClicked(true);
+    playSuccessChime();
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 }
+    });
+  };
+
+  return (
+    <div ref={containerRef} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {!clicked ? (
+        <div style={{ textAlign: 'center', padding: '10px 0' }}>
+          <motion.p
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            style={{
+              fontFamily: 'var(--font-cursive)',
+              fontSize: '1.4rem',
+              color: '#f0d060',
+              fontWeight: 'bold',
+              margin: '0 0 10px',
+              textShadow: '0 2px 10px rgba(240,208,96,0.3)',
+            }}
+          >
+            Tìm anh để lên xe đi nhận quà nha! 🏍️💨
+          </motion.p>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', margin: 0 }}>
+            (Hãy click vào hình anh đang chạy nhảy trên màn hình)
+          </p>
+
+          {/* Portal representation for the flying face */}
+          <AnimatePresence>
+            <motion.div
+              drag
+              dragConstraints={{ top: 0, left: 0, right: window.innerWidth, bottom: window.innerHeight }}
+              animate={{
+                x: position.x - 60,
+                y: position.y - 60,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 80,
+                damping: 12
+              }}
+              onClick={handleCatch}
+              onMouseEnter={teleport} // Teleport on hover to make it extra fun and dynamic!
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: 120,
+                height: 120,
+                zIndex: 99999,
+                cursor: 'pointer',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {/* Text Balloon above the rider */}
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.95)',
+                color: '#1a0030',
+                padding: '4px 8px',
+                borderRadius: '10px',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                whiteSpace: 'nowrap',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+                marginBottom: 6,
+                position: 'relative',
+                border: '1px solid #ff4d6d'
+              }}>
+                Lên a đèo đi xem quà nhé!
+                <div style={{
+                  position: 'absolute',
+                  bottom: -4,
+                  left: '50%',
+                  transform: 'translateX(-50%) rotate(45deg)',
+                  width: 8,
+                  height: 8,
+                  background: '#e9e9e9',
+                }} />
+              </div>
+
+              {/* Character container: Cut-out effect (circle frame) */}
+              <div style={{
+                width: 75,
+                height: 75,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '3px solid #ff4d6d',
+                boxShadow: '0 0 15px rgba(255, 77, 109, 0.8), 0 8px 16px rgba(0,0,0,0.4)',
+                background: '#fff',
+              }}>
+                <img
+                  src="/photos/surprise-ride.jpg"
+                  alt="Surprise Rider"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ width: '100%', textAlign: 'center' }}
+        >
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(6,214,160,0.15), rgba(76,201,240,0.1))',
+            border: '2px solid #06d6a0',
+            borderRadius: 18,
+            padding: '1.2rem',
+            marginBottom: '1rem',
+          }}>
+            <p style={{ fontSize: '1.4rem', color: '#06d6a0', fontWeight: 'bold', margin: '0 0 5px' }}>
+              Đã bắt được anh! 🎉
+            </p>
+            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', margin: 0 }}>
+              Chuẩn bị đi xem quà thôi nàoo! 🏍️💨
+            </p>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(255,77,109,0.7)' }}
+            whileTap={{ scale: 0.95 }}
+            className="btn-primary"
+            onClick={onWon}
+            style={{ width: '100%', justifyContent: 'center', fontSize: '1.15rem', padding: '15px' }}
+          >
+            <Gift size={20} /> Nhận quà của anh nhé
+          </motion.button>
+        </motion.div>
+      )}
+    </div>
   );
 };
 
